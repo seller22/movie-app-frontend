@@ -19,6 +19,36 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `Code Breakdown Table`
+
+| Element/Function           | Type            | Purpose                                            | Description                                                                     |
+| -------------------------- | --------------- | -------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `useState`                 | React Hook      | State manage karne ke liye                         | `watchlist`, `isLoading`, aur `error` jese states manage karta hai.             |
+| `useEffect`                | React Hook      | Side effects run karne ke liye                     | Initial load par loading state show karne ke liye timer set karta hai.          |
+| `watchlist`                | State           | Watchlist data store karta hai                     | Ye ek array hai jo user ki selected movies store karta hai.                     |
+| `isLoading`                | State           | Loading animation dikhane ke liye                  | App ke start me data loading show karne ke liye true hota hai.                  |
+| `error`                    | State           | Error messages dikhane ke liye                     | Agar koi invalid movie data mile toh error message set karta hai.               |
+| `toggleWatchlist(movie)`   | Function        | Movie ko watchlist me add/remove karta hai         | Agar movie already watchlist me hai to remove karta hai, nahi to add karta hai. |
+| `<Loader />`               | Component       | Loading animation                                  | Jab `isLoading` true ho to spinner ya loader show karta hai.                    |
+| `<ErrorMessage />`         | Component       | Error text display karta hai                       | Agar `error` state me koi message ho to user ko dikhata hai.                    |
+| `moviesData`               | Static Data     | Movie list                                         | Static list of movies with title, year and poster image.                        |
+| `.map()` (on `moviesData`) | JS Array Method | List render karta hai                              | Har movie ke liye ek card UI generate karta hai.                                |
+| `isInWatchlist`            | Variable        | Check karta hai kya movie already watchlist me hai | Conditional rendering ke liye use hota hai (`Add` ya `Remove` button).          |
+
+
+### `UI Structure Explanation`
+
+| Section                     | Description                                                            |
+| --------------------------- | ---------------------------------------------------------------------- |
+| `<h1>🎬 Free to Watch</h1>` | Heading of the page                                                    |
+| `movie-grid`                | Grid layout for displaying all movies                                  |
+| `movie-card`                | Har movie ke liye ek card jisme image, title, year aur button hota hai |
+| `toggle-btn`                | Add/Remove button - state ke hisaab se class change hoti hai           |
+| `watchlist-grid`            | Watchlist ke movies dikhane ka section                                 |
+| `empty-text`                | Jab watchlist empty ho to ek message dikhata hai                       |
+
+
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
